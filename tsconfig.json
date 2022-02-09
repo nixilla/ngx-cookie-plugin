@@ -11,6 +11,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "ngx-cookie-plugin": [
+        "dist/ngx-cookie-plugin/ngx-cookie-plugin",
+        "dist/ngx-cookie-plugin"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,

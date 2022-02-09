@@ -1,0 +1,11 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" formControlName="consent" id="yes" value="yes" [checked]="form.get('consent')?.value === 'yes'">
+    <label class="form-check-label" for="yes" i18n>Use cookies that measure my website use</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" formControlName="consent" id="no" value="no" [checked]="form.get('consent')?.value !== 'yes'">
+    <label class="form-check-label" for="no" i18n>Do not use cookies that measure my website use</label>
+  </div>
+  <button type="submit" class="btn btn-primary" i18n>Save Changes</button>
+</form>
