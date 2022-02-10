@@ -1,6 +1,7 @@
 {
   "name": "@nixilla/ngx-cookie-plugin",
-  "version": "0.0.1",
+  "description": "Angular plugin which provides basic cookie bar and cookie policy page for projects.",
+  "version": "0.0.2",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",

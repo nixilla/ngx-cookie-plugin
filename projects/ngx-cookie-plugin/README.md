@@ -1,5 +1,7 @@
 # Cookie Plugin for Angular projects
 
+Angular plugin which provides basic cookie bar and cookie policy page for projects.
+
 Provides:
 * Cookie bar to display the notification about cookies being used
 * Cookie consent form which saves the choice to `cookie-consent` cookie
