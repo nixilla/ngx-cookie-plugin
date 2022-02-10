@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
+import { Location } from '@angular/common'
+
+import { CookieService } from "../cookie.service";
 
 @Component({
   selector: 'ngx-cookie-consent-form',
@@ -7,10 +10,12 @@ import { FormControl, FormGroup } from "@angular/forms";
 })
 export class ConsentFormComponent implements OnInit {
 
-  private savedValue: any;
   public form!: FormGroup;
 
-  constructor() { }
+  constructor(
+    private cookieService: CookieService,
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
 
@@ -18,24 +23,11 @@ export class ConsentFormComponent implements OnInit {
       'consent': new FormControl()
     });
 
-    for(let cookie of document.cookie.split(';')) {
-      if(cookie.trim().startsWith('cookie-consent')) {
-        this.savedValue = JSON.parse(cookie.split('=')[1]);
-      }
-    }
-
-    if(this.savedValue) {
-      this.form.patchValue({ consent: this.savedValue.consent });
-    }
+    this.form.patchValue({ consent: this.cookieService.getCurrentValue() });
   }
 
   onSubmit() {
-    this.setConsent(this.form.value.consent);
-  }
-
-  private setConsent(consent: string) {
-    const today = new Date();
-    const cookieExpiry = new Date(today.setMonth(today.getMonth() + 12));
-    document.cookie = 'cookie-consent={"consent":"'+consent+'","timestamp": "'+Date.now()+'"}; domain='+location.hostname+'; path=/; expires='+cookieExpiry+';';
+    this.cookieService.setConsent(this.form.value.consent);
+    this.location.back();
   }
 }
