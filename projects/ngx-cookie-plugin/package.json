@@ -1,7 +1,15 @@
 {
   "name": "@nixilla/ngx-cookie-plugin",
   "description": "Angular plugin which provides basic cookie bar and cookie policy page for projects.",
-  "version": "1.0.0",
+  "homepage": "https://github.com/nixilla/ngx-cookie-plugin#readme",
+  "url" : "https://github.com/nixilla/ngx-cookie-plugin/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nixilla/ngx-cookie-plugin.git",
+    "directory": "projects/ngx-cookie-plugin"
+  },
+  "license" : "MIT",
+  "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
